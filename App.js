@@ -14,7 +14,7 @@ import { store } from './src/redux';
 
 const loadPhotos = async () => {
   const photos = await (await fetch(
-    `https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0'`,
+    'https://api.unsplash.com/photos/?client_id=cf49c08b444ff4cb9e4d126b7e9f7513ba1ee58de7906e4360afc1a33d1bf4c0',
     {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -72,12 +72,31 @@ function App() {
     <Provider store={store}>
       <NavigationContainer >
         <Stack.Navigator initialRouteName='Gallery'>
-          <Stack.Screen name="Gallery" component={MainScreen} />
-          <Stack.Screen name="Photo" component={PhotoScreen} />
+          <Stack.Screen name="Gallery" color='blue' component={MainScreen} options={{
+          title: 'Gallery App',
+          headerStyle: {
+            backgroundColor: '#f4511e'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          }
+        }} />
+          <Stack.Screen name="Photo" component={PhotoScreen} options={{
+          title: 'Selected Photo',
+          headerStyle: {
+            backgroundColor: '#f4511e'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          }
+        }} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );
 }
+
 
 export default App
