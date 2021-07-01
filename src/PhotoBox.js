@@ -1,13 +1,22 @@
 import React from 'react'
-import { View, TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import { TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native'
+
+
 
 const PhotoBox = (props) => {
+  
   return (
-    <TouchableOpacity style={{ flex: 1 }} onPress={() => props.nav.navigate('Photo', { url: props.urlFull })} style={{ width: Dimensions.get('window').width / 2, height: '100%', marginVertical: "2%" }}>
+
+    <TouchableOpacity style={{ flex: 1 }} 
+    onPress={() => props.nav.navigate('Photo', { url: props.urlFull })} 
+    style={{ width: Dimensions.get('window').width / 2, height: '100%', marginVertical: "2%" }}>
+
       <Image source={{ uri: props.urlThumb }} style={{ width: Dimensions.get('window').width / 2, height: "100%" }} />
+
       <Text style={styles.text}>
         {props.authorName}: {props.photoName}
       </Text>
+      
     </TouchableOpacity>
   )
 }
